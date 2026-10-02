@@ -90,6 +90,11 @@ or from HISTORY.md.
   Pie Crust.
 - Not yet built: a weeknight shortlist of sub-hour mains George will eat, and
   green vegetable sides.
+- Project doc `recipes/00-roster-all-441.md` is only a redirect page with stale
+  counts. Remove it once the project instructions point at
+  `recipes/00-roster-complete.md` (only Robert can edit the instructions). The two
+  September report docs were removed on 2 Oct 2026; copies are in
+  `archive/project-docs/`.
 - The Drive folder `My Drive/Cooking` still holds the Paprika export and the old
   working files as an archive. Its library/roster/spreadsheet are frozen at
   2 Oct 2026 unless someone copies `build/` output there.
