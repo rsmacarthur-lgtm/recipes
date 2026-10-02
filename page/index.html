@@ -23,14 +23,14 @@
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45; }
 .wrap { max-width: 980px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 56px; }
-button { font: inherit; color: inherit; }
+button, textarea, input { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
 /* ---------- list ---------- */
 .masthead h1 { font-family: var(--display); font-weight: 700; font-size: 1.7rem; line-height: 1.12; margin: 0; text-wrap: balance; }
 .masthead p { margin: 4px 0 0; color: var(--muted); font-size: .9rem; }
 .finder { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 12px 10px; display: flex; flex-direction: column; gap: 10px; }
-#q { width: 100%; font: inherit; font-size: 1.05rem; padding: 12px 14px; border: 2px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); }
+#q { width: 100%; font-size: 1.05rem; padding: 12px 14px; border: 2px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); }
 #q:focus { outline: none; border-color: var(--accent); }
 .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
@@ -54,6 +54,8 @@ button { font: inherit; color: inherit; }
 .btn { border: 1.5px solid var(--line); background: var(--surface); border-radius: 10px; padding: 8px 12px; font-size: .9rem; cursor: pointer; }
 .btn.back { font-weight: 700; margin-right: auto; }
 .btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.btn:disabled { opacity: .55; cursor: default; }
 #recipe h1 { font-family: var(--display); font-weight: 700; font-size: calc(1.75rem * var(--scale)); line-height: 1.12; margin: 10px 0 6px; text-wrap: balance; }
 .meta { color: var(--muted); font-size: .92em; margin: 0 0 14px; }
 .meta b { color: var(--ink); }
@@ -62,22 +64,40 @@ button { font: inherit; color: inherit; }
 .slip .label { color: var(--note-ink); opacity: .75; }
 .slip p { margin: 0; overflow-wrap: anywhere; } .slip p + p { margin-top: .6em; }
 .slip .rm { font-weight: 700; }
-.opt { border: 1.5px dashed var(--line); border-radius: 8px; padding: 11px 14px; margin-bottom: 18px; font-size: .95em; }
+.opt { border: 1.5px dashed var(--line); border-radius: 8px; padding: 11px 14px; margin-bottom: 14px; font-size: .95em; }
 .opt p { margin: 0; } .opt .log { margin-top: 6px; color: var(--muted); }
+
+.adjust { border: 1.5px solid var(--line); border-radius: 8px; background: var(--surface); padding: 10px 14px; margin-bottom: 18px; }
+.adjust summary { cursor: pointer; font-weight: 700; }
+.adjust .hint { display: block; font-size: .88em; color: var(--muted); margin: 8px 0 6px; }
+.adjust textarea { display: block; width: 100%; min-height: 4.4em; padding: 9px 11px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--bg); resize: vertical; }
+.adjust .acts { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.adjust .msg { font-size: .88em; color: var(--muted); min-width: 0; }
+#adjWrap { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+#adjOut { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 70ch; }
+
 .cols { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 800px) { .cols { grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); gap: 36px; } }
+.scaler { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin: 0 0 8px; }
+.scaler .chip { padding: 5px 11px; font-size: .88em; font-variant-numeric: tabular-nums; }
+.scaler label { font-size: .88em; color: var(--muted); margin-left: 4px; }
+#kx { width: 4.4em; padding: 5px 7px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--surface); font-size: .88em; }
+.scnote { font-size: .85em; color: var(--muted); margin: 8px 0 0; }
 .ing { list-style: none; margin: 0; padding: 0; }
 .ing li.head { font-weight: 700; margin: 12px 0 2px; }
 .ing label { display: flex; gap: 11px; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 .ing input { flex: none; width: 1.25em; height: 1.25em; margin: .12em 0 0; accent-color: var(--accent); }
 .ing span { min-width: 0; overflow-wrap: anywhere; }
+.ing b.sc { color: var(--accent); }
+.ing small { display: block; font-size: .78em; color: var(--muted); }
 .ing input:checked + span { color: var(--muted); text-decoration: line-through; }
+.ing input:checked + span b.sc { color: inherit; }
 .steps { display: flex; flex-direction: column; gap: 4px; max-width: 68ch; }
 .step { text-align: left; background: none; border: 0; border-left: 4px solid transparent; padding: 7px 0 7px 12px; margin-left: -16px; cursor: pointer; overflow-wrap: anywhere; line-height: 1.5; }
 .step.done { color: var(--muted); border-left-color: var(--accent); }
-details { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 12px; }
-summary { cursor: pointer; font-weight: 700; }
-details p { max-width: 70ch; font-size: .95em; }
+.more { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 12px; }
+.more summary { cursor: pointer; font-weight: 700; }
+.more p { max-width: 70ch; font-size: .95em; }
 .src { margin-top: 18px; font-size: .92em; overflow-wrap: anywhere; }
 a { color: var(--accent); }
 .empty { color: var(--muted); padding: 18px 0; }
@@ -108,13 +128,15 @@ a { color: var(--accent); }
   </article>
 </div>
 
+<script src="scale.js"></script>
 <script>
 (function () {
   var $ = function (s) { return document.querySelector(s); };
   var R = [], byId = {}, cat = 'All', onlyNotes = false, quick = false, listScroll = 0;
-  var ticks = {}, cur = null, lock = null, wantLock = false;
+  var ticks = {}, cur = null, lock = null, wantLock = false, ask = null, ctl = null;
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var paras = function (s) { return s.split(/\n+/).filter(function (x) { return x.trim(); }); };
+  var st = function (r) { return ticks[r.id] || (ticks[r.id] = { i: {}, s: {}, k: 1, req: '', adj: '', msg: '' }); };
 
   /* ----- text size, remembered on this device only ----- */
   var sizes = [1, 1.18, 1.38], si = 0;
@@ -133,7 +155,7 @@ a { color: var(--accent); }
     if (wantLock) { wantLock = false; if (lock) { lock.release().catch(function () {}); lock = null; } b.setAttribute('aria-pressed', 'false'); b.textContent = 'Keep screen on'; return; }
     wantLock = true;
     acquire().then(function () { b.setAttribute('aria-pressed', 'true'); b.textContent = 'Screen stays on'; })
-      .catch(function () { wantLock = false; b.textContent = 'Can’t keep screen on here'; });
+      .catch(function () { wantLock = false; b.textContent = 'Can\u2019t keep screen on here'; });
   });
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible' && wantLock) acquire().catch(function () {}); });
 
@@ -141,7 +163,7 @@ a { color: var(--accent); }
   var row = function (r) {
     var tags = [];
     if (r.h) tags.push('start ahead: ' + esc(r.h));
-    return '<li><button class="row" type="button" data-id="' + r.id + '"><span class="nm">' + esc(r.n) + (r.d ? '<i class="pen" title="Has cook’s notes"></i>' : '') +
+    return '<li><button class="row" type="button" data-id="' + r.id + '"><span class="nm">' + esc(r.n) + (r.d ? '<i class="pen" title="Has cook\u2019s notes"></i>' : '') +
       (tags.length ? '<span class="tags">' + tags.join(' · ') + '</span>' : '') + '</span><span class="tm">' + esc(r.t || '') + '</span></button></li>';
   };
   var group = function (title, rs) {
@@ -167,7 +189,7 @@ a { color: var(--accent); }
   var chips = function () {
     var cats = ['All']; R.forEach(function (r) { if (cats.indexOf(r.c) < 0) cats.push(r.c); });
     $('#chips').innerHTML =
-      '<button class="chip toggle" type="button" data-t="notes" aria-pressed="' + onlyNotes + '">With cook’s notes</button>' +
+      '<button class="chip toggle" type="button" data-t="notes" aria-pressed="' + onlyNotes + '">With cook\u2019s notes</button>' +
       '<button class="chip toggle" type="button" data-t="quick" aria-pressed="' + quick + '">45 min or less</button>' +
       cats.map(function (c) { return '<button class="chip" type="button" data-c="' + esc(c) + '" aria-pressed="' + (c === cat) + '">' + esc(c) + '</button>'; }).join('');
   };
@@ -179,54 +201,133 @@ a { color: var(--accent); }
   $('#q').addEventListener('input', render);
   $('#results').addEventListener('click', function (e) { var b = e.target.closest('.row'); if (b) open(b.dataset.id, true); });
 
+  /* ----- ingredients, with scaling ----- */
+  var KS = [[0.5, '½×'], [1, '1×'], [1.5, '1½×'], [2, '2×'], [3, '3×']];
+  var kLabel = function (k) { return '×' + parseFloat(k.toFixed(2)); };
+  var ingHtml = function (r) {
+    var t = st(r), k = t.k, h = '<div class="label">Ingredients</div><div class="scaler" role="group" aria-label="Scale the amounts">';
+    KS.forEach(function (x) { h += '<button type="button" class="chip" data-k="' + x[0] + '" aria-pressed="' + (Math.abs(k - x[0]) < 1e-9) + '">' + x[1] + '</button>'; });
+    h += '<label for="kx">or ×</label><input id="kx" type="number" inputmode="decimal" min="0.1" max="20" step="0.25" value="' + (KS.some(function (x) { return Math.abs(k - x[0]) < 1e-9; }) ? '' : parseFloat(k.toFixed(2))) + '"></div><ul class="ing">';
+    r.i.split('\n').forEach(function (ln, n) {
+      var s = ln.trim(); if (!s) return;
+      if (/:$/.test(s)) { h += '<li class="head">' + esc(s) + '</li>'; return; }
+      var sc = k !== 1 && window.scaleLine ? window.scaleLine(s, k) : { changed: false };
+      var body = sc.changed ? sc.parts.map(function (p) { return p[1] ? '<b class="sc">' + esc(p[0]) + '</b>' : esc(p[0]); }).join('') + '<small>as written: ' + esc(s) + '</small>' : esc(s);
+      h += '<li><label><input type="checkbox" id="ing-' + n + '" data-n="' + n + '"' + (t.i[n] ? ' checked' : '') + '><span>' + body + '</span></label></li>';
+    });
+    h += '</ul>';
+    if (k !== 1) h += '<p class="scnote">Amounts in colour are scaled ' + kLabel(k) + '. Can and package sizes, pan sizes, times and the method are as written.</p>';
+    return h;
+  };
+  var setK = function (k) { if (!cur || !(k > 0)) return; st(cur).k = Math.min(20, Math.max(0.1, k)); $('#ingbox').innerHTML = ingHtml(cur); };
+
   /* ----- one recipe ----- */
   var show = function (r) {
-    cur = r; var t = ticks[r.id] || (ticks[r.id] = { i: {}, s: {} }), h = '';
+    cur = r; var t = st(r), h = '';
     var meta = [];
     if (r.t) meta.push('<b>' + esc(r.t) + '</b>' + (r.a ? ', ' + esc(r.a) + ' hands-on' : ''));
     if (r.h) meta.push('<b>start ahead:</b> ' + esc(r.h));
     if (r.v) meta.push('Serves: ' + esc(r.v));
     if (r.s) meta.push(esc(r.s));
     h += '<h1>' + esc(r.n) + '</h1><p class="meta">' + meta.join(' · ') + '</p>';
-    if (r.d) h += '<div class="slip"><div class="label">Cook’s notes</div>' + paras(r.d).map(function (p) {
+    if (r.d) h += '<div class="slip"><div class="label">Cook\u2019s notes</div>' + paras(r.d).map(function (p) {
       var m = /^(RM\b[^:]{0,12}:)(.*)$/.exec(p.trim());
       return '<p>' + (m ? '<span class="rm">' + esc(m[1]) + '</span>' + esc(m[2]) : esc(p.trim())) + '</p>'; }).join('') + '</div>';
-    if (r.o && r.od !== 'no change') h += '<div class="opt"><div class="label">Claude’s suggested changes · ' + esc(r.od) + '</div><p>' + esc(r.o) + '</p>' +
+    if (r.o && r.od !== 'no change') h += '<div class="opt"><div class="label">Claude\u2019s suggested changes · ' + esc(r.od) + '</div><p>' + esc(r.o) + '</p>' +
       (r.ol || []).map(function (l) { return '<p class="log">→ ' + esc(l) + '</p>'; }).join('') + '</div>';
+    h += '<details class="adjust" id="adj"' + (ask ? '' : ' hidden') + (t.adj ? ' open' : '') + '><summary>Adjust this recipe with Claude</summary>' +
+      '<label class="hint" for="adjReq">Say what to change, for example: 6 thighs instead of 8 breasts, convection oven, no parsley.</label>' +
+      '<textarea id="adjReq" rows="3">' + esc(t.req) + '</textarea>' +
+      '<div class="acts"><button class="btn primary" id="adjGo" type="button">Adjust</button><button class="btn" id="adjStop" type="button" hidden>Stop</button>' +
+      '<button class="btn" id="adjClear" type="button"' + (t.adj ? '' : ' hidden') + '>Clear</button><span class="msg" id="adjMsg">' + esc(t.msg) + '</span></div>' +
+      '<div id="adjWrap"' + (t.adj ? '' : ' hidden') + '><div class="label">Adjusted by Claude for this cook · not saved to the recipe</div><div id="adjOut">' + esc(t.adj) + '</div></div></details>';
     h += '<div class="cols">';
-    if (r.i) {
-      h += '<section><div class="label">Ingredients</div><ul class="ing">';
-      r.i.split('\n').forEach(function (ln, k) {
-        var s = ln.trim(); if (!s) return;
-        if (/:$/.test(s)) h += '<li class="head">' + esc(s) + '</li>';
-        else h += '<li><label><input type="checkbox" id="ing-' + k + '" data-k="' + k + '"' + (t.i[k] ? ' checked' : '') + '><span>' + esc(s) + '</span></label></li>';
-      });
-      h += '</ul></section>';
-    }
+    if (r.i) h += '<section id="ingbox">' + ingHtml(r) + '</section>';
     h += '<section><div class="label">Method</div><div class="steps">';
-    if (r.m) paras(r.m).forEach(function (p, k) { h += '<button type="button" class="step' + (t.s[k] ? ' done' : '') + '" data-k="' + k + '">' + esc(p.trim()) + '</button>'; });
+    if (r.m) paras(r.m).forEach(function (p, n) { h += '<button type="button" class="step' + (t.s[n] ? ' done' : '') + '" data-n="' + n + '">' + esc(p.trim()) + '</button>'; });
     else h += '<p class="empty">No method recorded for this one.</p>';
     h += '</div></section></div>';
-    if (r.x) h += '<details><summary>Further notes</summary>' + paras(r.x).map(function (p) { return '<p>' + esc(p.trim()) + '</p>'; }).join('') + '</details>';
+    if (r.x) h += '<details class="more"><summary>Further notes</summary>' + paras(r.x).map(function (p) { return '<p>' + esc(p.trim()) + '</p>'; }).join('') + '</details>';
     if (r.u && /^https?:\/\//.test(r.u)) h += '<p class="src"><a href="' + esc(r.u) + '" target="_blank" rel="noopener">Original recipe</a></p>';
     $('#body').innerHTML = h;
   };
-  $('#body').addEventListener('change', function (e) { if (e.target.dataset.k !== undefined && cur) ticks[cur.id].i[e.target.dataset.k] = e.target.checked; });
+
+  /* ----- ask Claude to adjust this recipe: one cook, nothing saved ----- */
+  var COPY = { rate_limited: 'You\u2019ve reached a usage limit. Try again later.', session_expired: 'Sign in to Claude again, then retry.',
+    refused: 'Claude declined that request. Try wording it differently.', empty_completion: 'No answer came back. Try asking for less.',
+    prompt_too_large: 'This recipe is too long to send.' };
+  var GONE = { not_granted: 1, sampling_disabled: 1, not_declared: 1, capability_disabled: 1, capability_removed: 1 };
+  var prompt = function (r, req, k) {
+    var t = [];
+    t.push('You are adjusting one recipe from a family collection for a single cook, who will read your answer on a phone in the kitchen.');
+    t.push('What the cook wants changed:\n' + req);
+    if (k !== 1) t.push('The cook has also set the page to scale the recipe ' + kLabel(k) + '. Scale the whole recipe by that factor first, then apply the request.');
+    t.push('Rules:\n' +
+      '- Apply exactly what was asked, plus anything that has to change because of it (quantities, pan, time, temperature, doneness). Change nothing else.\n' +
+      '- Keep the recipe\u2019s own style for ingredient lines: the same kind of measure it uses, with the gram weight in parentheses beside it, like "2 T. (27 g) olive oil". Recalculate both.\n' +
+      '- A line with no quantity, like "salt and pepper" or "lemon wedges for serving", stays without one. Never invent a quantity.\n' +
+      '- The cook\u2019s notes record what this family learned from making the dish. Follow them wherever they apply.\n' +
+      '- Give temperatures as real numbers in °F, and doneness as an internal temperature where one applies.\n' +
+      '- If the request would make the dish unsafe or unlikely to work, say so plainly in the first section.\n' +
+      '- Plain text only: no Markdown, no asterisks, no tables.');
+    t.push('Answer in exactly this layout:\nWHAT CHANGED\n(2 to 5 short lines: what you changed and why, any change to time or temperature, any assumption you made)\n\nINGREDIENTS\n(the full adjusted list, one per line)\n\nMETHOD\n(the full method with the changes applied; keep the original wording where nothing changes)');
+    t.push('The recipe as written:\nName: ' + r.n + (r.v ? '\nServes: ' + r.v : '') + (r.t ? '\nTime: ' + r.t + (r.a ? ', ' + r.a + ' hands-on' : '') : '') +
+      (r.d ? '\n\nCook\u2019s notes:\n' + r.d : '') + '\n\nIngredients:\n' + (r.i || '(none recorded)') + '\n\nMethod:\n' + (r.m || '(none recorded)'));
+    return t.join('\n\n');
+  };
+  var adjust = function () {
+    if (!cur || !ask || ctl) return;
+    var r = cur, t = st(r), req = $('#adjReq').value.trim();
+    if (!req) { $('#adjMsg').textContent = 'Type what to change first.'; return; }
+    var live = function () { return cur === r; };           // the viewer may have left this recipe
+    t.req = req; t.msg = ''; t.adj = '';
+    var mine = ctl = new AbortController();
+    $('#adjGo').disabled = true; $('#adjStop').hidden = false; $('#adjClear').hidden = true;
+    $('#adjWrap').hidden = false; $('#adjOut').textContent = 'Thinking…'; $('#adjMsg').textContent = '';
+    var done = function (msg) {
+      if (ctl === mine) ctl = null;
+      t.msg = msg || '';
+      if (!live() || ctl) return;
+      $('#adjGo').disabled = false; $('#adjStop').hidden = true; $('#adjClear').hidden = !t.adj;
+      $('#adjOut').textContent = t.adj; $('#adjWrap').hidden = !t.adj; $('#adjMsg').textContent = t.msg;
+    };
+    ask(prompt(r, req, t.k), { signal: mine.signal, onText: function (u) { t.adj = u.text; if (live()) $('#adjOut').textContent = u.text; } })
+      .then(function (res) { t.adj = res.text; done(res.truncated ? 'The answer was cut short. Ask for less at a time.' : ''); })
+      .catch(function (e) {
+        var code = (e && e.code) || 'upstream_error';
+        t.adj = code === 'refused' ? '' : ((e && e.text) || '');
+        if (GONE[code]) { ask = null; done(''); if (live()) { $('#adj').hidden = true; } return; }
+        done(code === 'cancelled' ? '' : COPY[code] || 'That was interrupted. Try again.');
+      });
+  };
+  $('#body').addEventListener('change', function (e) {
+    if (!cur) return;
+    if (e.target.id === 'kx') { var v = parseFloat(e.target.value); if (v > 0) setK(v); return; }
+    if (e.target.dataset.n !== undefined) st(cur).i[e.target.dataset.n] = e.target.checked;
+  });
+  $('#body').addEventListener('input', function (e) { if (cur && e.target.id === 'adjReq') st(cur).req = e.target.value; });
   $('#body').addEventListener('click', function (e) {
-    var b = e.target.closest('.step'); if (!b || !cur) return;
-    b.classList.toggle('done'); ticks[cur.id].s[b.dataset.k] = b.classList.contains('done');
+    if (!cur) return;
+    var b = e.target.closest('.step');
+    if (b) { b.classList.toggle('done'); st(cur).s[b.dataset.n] = b.classList.contains('done'); return; }
+    var c = e.target.closest('.scaler .chip'); if (c) { setK(parseFloat(c.dataset.k)); return; }
+    var id = e.target.id;
+    if (id === 'adjGo') adjust();
+    else if (id === 'adjStop') { if (ctl) ctl.abort(); }
+    else if (id === 'adjClear') { var t = st(cur); t.adj = ''; t.msg = ''; $('#adjWrap').hidden = true; $('#adjOut').textContent = ''; $('#adjClear').hidden = true; $('#adjMsg').textContent = ''; }
   });
 
   var open = function (id, push) {
     var r = byId[id]; if (!r) return;
+    if (ctl) ctl.abort();
     if (!$('#list').hidden) listScroll = window.scrollY;
     show(r); $('#list').hidden = true; $('#recipe').hidden = false; window.scrollTo(0, 0);
     if (push) { try { history.pushState({ id: id }, '', '#' + id); } catch (e) {} }
   };
-  var close = function () { cur = null; $('#recipe').hidden = true; $('#list').hidden = false; window.scrollTo(0, listScroll); };
+  var close = function () { if (ctl) ctl.abort(); cur = null; $('#recipe').hidden = true; $('#list').hidden = false; window.scrollTo(0, listScroll); };
   $('#back').addEventListener('click', function () {
-    var st = null; try { st = history.state; } catch (e) {}
-    if (st && st.id) { try { history.back(); return; } catch (e) {} }
+    var s = null; try { s = history.state; } catch (e) {}
+    if (s && s.id) { try { history.back(); return; } catch (e) {} }
     close();
   });
   window.addEventListener('popstate', function (e) { if (e.state && e.state.id) open(e.state.id, false); else close(); });
@@ -235,11 +336,14 @@ a { color: var(--accent); }
   var start = function (d) {
     R = d.recipes; R.forEach(function (r) { byId[r.id] = r; r._n = r.n.toLowerCase(); r._all = (r.n + ' ' + (r.s || '') + ' ' + (r.i || '')).toLowerCase(); });
     var noted = R.filter(function (r) { return r.d; }).length;
-    $('#count').textContent = R.length + ' recipes · ' + noted + ' with cook’s notes · updated ' + d.updated;
+    $('#count').textContent = R.length + ' recipes · ' + noted + ' with cook\u2019s notes · updated ' + d.updated;
     $('#status').hidden = true; chips(); render();
     var h = (location.hash || '').slice(1); if (h && byId[h]) open(h, false);
   };
   fetch('recipes.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(start)
     .catch(function () { $('#status').textContent = 'The recipes did not load. Reload the page to try again.'; });
+  /* The Adjust box appears only where this view can ask Claude. */
+  (window.claude && window.claude.use ? window.claude.use('sample') : Promise.resolve(null))
+    .then(function (f) { ask = f || null; var a = $('#adj'); if (ask && a) a.hidden = false; }).catch(function () {});
 })();
 </script>

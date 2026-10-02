@@ -25,7 +25,9 @@ GONE against `published.json`. Then:
 2. `python3 publish_prep.py --mark`
 3. Refresh the phone page: `python3 page.py`, then Artifact publish with
    `url` https://claude.ai/artifact/ARwkTugsPV1RqGrtng8zmQ, `file_path`
-   `page/index.html` and `files` `{"recipes.json": "build/page/recipes.json"}`.
+   `page/index.html` and `files` `{"recipes.json": "build/page/recipes.json",
+   "scale.js": "page/scale.js"}`. Leave `capabilities` out: omitting it keeps the
+   page's stored `sample` grant (the Adjust box), an empty object would remove it.
    A new session must `read` that artifact once before it may publish to it; the
    page is small on purpose, the recipes travel in recipes.json.
 4. `git add -A && git commit && git push`
@@ -40,6 +42,13 @@ The phone page is what Robert cooks from: search, cook's notes first, ingredient
 to tick off. It is private to him unless he shares it from the page's Share menu.
 It shows whatever was in the master at the last step 3, so skipping step 3 leaves
 the page behind the project docs.
+
+Two things on the page change what a cook sees without touching the master. The
+scale control multiplies the amounts in each ingredient line (`page/scale.js`;
+`node page/scale_test.js 12` runs its fixed cases and prints real lines by risk
+category - run it after changing a rule). The Adjust box sends the recipe and the
+cook's typed request to Claude on the viewer's own account and shows the answer
+for that cook only. A change Robert wants kept is still a `recipe.py` edit.
 
 ## Rules the scripts enforce
 
@@ -90,6 +99,7 @@ the page behind the project docs.
     state/                estimate and optimization passes, page digests, URL worklist
     archive/              one-off scripts from the September 2026 merge; not part of the loop
     page/index.html       the phone page ("MacArthur Family Recipes" artifact); page.py builds its data
+    page/scale.js         ingredient-line scaling, published beside the page; scale_test.js checks it
     HISTORY.md            the log up to 2 Oct 2026, written when this lived in Drive
 
 ## Open items

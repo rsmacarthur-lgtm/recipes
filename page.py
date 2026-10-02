@@ -43,4 +43,4 @@ os.makedirs("build/page", exist_ok=True)
 with open("build/page/recipes.json", "w", encoding="utf-8") as f:
     json.dump({"updated": datetime.date.today().strftime("%-d %B %Y"), "recipes": out}, f, ensure_ascii=False, separators=(",", ":"))
 print("page data: %d recipes, %s bytes -> build/page/recipes.json" % (len(out), format(os.path.getsize("build/page/recipes.json"), ",")))
-print("publish: Artifact file_path page/index.html, files {\"recipes.json\": \"build/page/recipes.json\"}, url = the page's link in CLAUDE.md")
+print("publish: Artifact file_path page/index.html, files {recipes.json: build/page/recipes.json, scale.js: page/scale.js}, url = the page's link in CLAUDE.md")
