@@ -23,13 +23,23 @@ GONE against `published.json`. Then:
 1. `Projects project_write` each NEW/CHANGED doc with `local_path`
    `build/docs/<name>` to project path `recipes/<name>`; `project_delete` each GONE.
 2. `python3 publish_prep.py --mark`
-3. `git add -A && git commit && git push`
+3. Refresh the phone page: `python3 page.py`, then Artifact publish with
+   `url` https://claude.ai/artifact/ARwkTugsPV1RqGrtng8zmQ, `file_path`
+   `page/index.html` and `files` `{"recipes.json": "build/page/recipes.json"}`.
+   A new session must `read` that artifact once before it may publish to it; the
+   page is small on purpose, the recipes travel in recipes.json.
+4. `git add -A && git commit && git push`
 
 `published.json` is what the project holds. It moves only on `--mark`, so run
 `--mark` only after the writes succeeded, and commit it with the change.
 
 `python3 recipe.py stats` gives current counts. Do not quote counts from memory
 or from HISTORY.md.
+
+The phone page is what Robert cooks from: search, cook's notes first, ingredients
+to tick off. It is private to him unless he shares it from the page's Share menu.
+It shows whatever was in the master at the last step 3, so skipping step 3 leaves
+the page behind the project docs.
 
 ## Rules the scripts enforce
 
@@ -79,6 +89,7 @@ or from HISTORY.md.
     timeblock.py merge_est.py merge_opt.py   bulk passes (see the warning above)
     state/                estimate and optimization passes, page digests, URL worklist
     archive/              one-off scripts from the September 2026 merge; not part of the loop
+    page/index.html       the phone page ("MacArthur Family Recipes" artifact); page.py builds its data
     HISTORY.md            the log up to 2 Oct 2026, written when this lived in Drive
 
 ## Open items
