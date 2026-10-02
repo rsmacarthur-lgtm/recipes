@@ -17,6 +17,13 @@ from recipe import load
 def clean(s):
     return re.sub(r"\n{3,}", "\n\n", str(s or "").replace("\r\n", "\n").replace("\r", "\n").strip())
 
+def for_page(notes):
+    """The page is shared with family. The Gmail-merge provenance paragraph (thread
+    ids, who mailed what to whom, why an entry was kept separate) stays in the master
+    and the project docs but is not shown here. Anything a cook needs must not live
+    in that paragraph - give it a paragraph of its own."""
+    return "\n\n".join(p for p in re.split(r"\n\s*\n", clean(notes)) if not p.startswith("Merged from Robert's Gmail archive"))
+
 R = load(); seen = collections.Counter(); out = []
 for r in R:                                   # same anchors as build2.py, so links match the docs
     name = re.sub(r"\s+", " ", clean(r.get("name")))
@@ -28,7 +35,7 @@ for r in R:                                   # same anchors as build2.py, so li
            "c": ([x for x in (r.get("categories") or []) if x and x.strip()] or ["Uncategorized"])[0].strip(),
            "s": re.sub(r"\s+", " ", clean(r.get("source"))), "v": re.sub(r"\s+", " ", clean(r.get("servings"))),
            "u": clean(r.get("source_url")), "d": clean(r.get("description")), "i": clean(r.get("ingredients")),
-           "m": clean(r.get("directions")), "x": clean(r.get("notes"))}
+           "m": clean(r.get("directions")), "x": for_page(r.get("notes"))}
     if t.get("total"):
         rec["t"] = ("" if t.get("source") == "stated" else "about ") + t["total"]; rec["tm"] = t.get("total_min")
     if t.get("active"): rec["a"] = ("~" if t.get("active_est") else "") + t["active"]
