@@ -1,0 +1,226 @@
+[
+ {
+  "seg": 0,
+  "name": "The Best Italian-American Tomato Sauce",
+  "file": "segments/00_the-best-italian-american-tomato-sauce.txt",
+  "chars": 37481,
+  "url": "https://www.seriouseats.com/the-best-slow-cooked-italian-american-tomato-sauce-red-sauce-recipe"
+ },
+ {
+  "seg": 1,
+  "name": "Sous Vide Pork Chops",
+  "file": "segments/01_sous-vide-pork-chops.txt",
+  "chars": 25725,
+  "url": "https://www.seriouseats.com/recipes/2016/04/sous-vide-pork-chops-recipe.html"
+ },
+ {
+  "seg": 2,
+  "name": "Sous Vide Glazed Carrots",
+  "file": "segments/02_sous-vide-glazed-carrots.txt",
+  "chars": 12889,
+  "url": "http://www.seriouseats.com/recipes/2010/06/sous-vide-glazed-carrots-recipe.html"
+ },
+ {
+  "seg": 3,
+  "name": "Sous Vide Barbecue Pulled Pork Shoulder Kenji",
+  "file": "segments/03_sous-vide-barbecue-pulled-pork-shoulder-kenji.txt",
+  "chars": 23229,
+  "url": "https://www.seriouseats.com/recipes/2016/07/sous-vide-barbecue-pulled-pork-shoulder-recipe.html"
+ },
+ {
+  "seg": 4,
+  "name": "Slow-Roasted Beef Tenderloin",
+  "file": "segments/04_slow-roasted-beef-tenderloin.txt",
+  "chars": 33089,
+  "url": "https://www.seriouseats.com/slow-roasted-beef-tenderloin-recipe"
+ },
+ {
+  "seg": 5,
+  "name": "Pasta Alla Gricia",
+  "file": "segments/05_pasta-alla-gricia.txt",
+  "chars": 25813,
+  "url": "https://www.seriouseats.com/recipes/2018/11/pasta-alla-gricia.html"
+ },
+ {
+  "seg": 6,
+  "name": "New York-Style Pizza Sauce",
+  "file": "segments/06_new-york-style-pizza-sauce.txt",
+  "chars": 19327,
+  "url": "https://www.seriouseats.com/recipes/2010/10/new-york-style-pizza-sauce.html"
+ },
+ {
+  "seg": 7,
+  "name": "Mexican Street Corn Salad (Esquites)",
+  "file": "segments/07_mexican-street-corn-salad-esquites.txt",
+  "chars": 14314,
+  "url": "https://www.seriouseats.com/esquites-mexican-street-corn-salad-recipe"
+ },
+ {
+  "seg": 8,
+  "name": "Mexican Shredded Pork In Ancho-Orange Sauce (Chilorio)",
+  "file": "segments/08_mexican-shredded-pork-in-ancho-orange-sauce-chil.txt",
+  "chars": 8617,
+  "url": "http://www.seriouseats.com/recipes/2013/04/shredded-pork-in-ancho-orange-sauce-chilorio.html"
+ },
+ {
+  "seg": 9,
+  "name": "Korean Beef Bulgogi Burritos",
+  "file": "segments/09_korean-beef-bulgogi-burritos.txt",
+  "chars": 11442,
+  "url": "https://www.seriouseats.com/korean-burrito-beef-bulgogi-recipe"
+ },
+ {
+  "seg": 10,
+  "name": "Key Lime Pie",
+  "file": "segments/10_key-lime-pie.txt",
+  "chars": 9622,
+  "url": "https://www.seriouseats.com/recipes/2012/01/classic-fresh-key-lime-pie-recipe.html"
+ },
+ {
+  "seg": 11,
+  "name": "Jim Lahey's No Knead Pizza Dough",
+  "file": "segments/11_jim-lahey-s-no-knead-pizza-dough.txt",
+  "chars": 13180,
+  "url": "https://www.seriouseats.com/recipes/2012/03/jim-laheys-no-knead-pizza-dough-recipe.html"
+ },
+ {
+  "seg": 12,
+  "name": "Grilled Shrimp with Garlic and Lemon",
+  "file": "segments/12_grilled-shrimp-with-garlic-and-lemon.txt",
+  "chars": 17459,
+  "url": "https://www.seriouseats.com/grilled-shrimp-garlic-lemon-food-lab-recipe"
+ },
+ {
+  "seg": 13,
+  "name": "French Onion Soup (Soupe à l'Oignon Gratinée)",
+  "file": "segments/13_french-onion-soup-soupe-l-oignon-gratin-e.txt",
+  "chars": 28898,
+  "url": "https://www.seriouseats.com/french-onion-soup-recipe"
+ },
+ {
+  "seg": 14,
+  "name": "Foolproof Pan Pizza",
+  "file": "segments/14_foolproof-pan-pizza.txt",
+  "chars": 31084,
+  "url": "https://www.seriouseats.com/foolproof-pan-pizza-recipe"
+ },
+ {
+  "seg": 15,
+  "name": "Detroit-Style Pan Pizza",
+  "file": "segments/15_detroit-style-pan-pizza.txt",
+  "chars": 39051,
+  "url": "https://www.seriouseats.com/detroit-style-pizza-recipe"
+ },
+ {
+  "seg": 16,
+  "name": "Creamy Coleslaw",
+  "file": "segments/16_creamy-coleslaw.txt",
+  "chars": 27160,
+  "url": "https://www.seriouseats.com/recipes/2013/07/creamy-cole-slaw.html"
+ },
+ {
+  "seg": 17,
+  "name": "Coq Au Vin (Chicken Braised in Red Wine)",
+  "file": "segments/17_coq-au-vin-chicken-braised-in-red-wine.txt",
+  "chars": 31677,
+  "url": "https://www.seriouseats.com/coq-au-vin-chicken-red-wine-braise-recipe"
+ },
+ {
+  "seg": 18,
+  "name": "Classic Panzanella Salad (Tuscan-Style Tomato-And-Bread Salad)",
+  "file": "segments/18_classic-panzanella-salad-tuscan-style-tomato-and.txt",
+  "chars": 21394,
+  "url": "https://www.seriouseats.com/recipes/2015/09/classic-panzanella-salad-recipe.html"
+ },
+ {
+  "seg": 19,
+  "name": "Cacio E Pepe (Spaghetti with Black Pepper and Pecorino Romano)",
+  "file": "segments/19_cacio-e-pepe-spaghetti-with-black-pepper-and-pec.txt",
+  "chars": 18923,
+  "url": "https://www.seriouseats.com/spaghetti-cacio-e-pepe-recipe"
+ },
+ {
+  "seg": 20,
+  "name": "Buttermilk Vanilla Waffles",
+  "file": "segments/20_buttermilk-vanilla-waffles.txt",
+  "chars": 15275,
+  "url": "https://www.seriouseats.com/recipes/2016/04/buttermilk-vanilla-waffles-recipe.html"
+ },
+ {
+  "seg": 21,
+  "name": "Buttermilk Blue Cheese Dressing",
+  "file": "segments/21_buttermilk-blue-cheese-dressing.txt",
+  "chars": 6251,
+  "url": "https://www.seriouseats.com/recipes/2017/06/buttermilk-blue-cheese-dressing-recipe.html"
+ },
+ {
+  "seg": 22,
+  "name": "All-American Beef Stew",
+  "file": "segments/22_all-american-beef-stew.txt",
+  "chars": 39380,
+  "url": "https://www.seriouseats.com/all-american-beef-stew-recipe"
+ },
+ {
+  "seg": 23,
+  "name": "5-Minute Miso Glazed Salmon",
+  "file": "segments/23_5-minute-miso-glazed-salmon.txt",
+  "chars": 13487,
+  "url": "https://www.seriouseats.com/miso-glazed-salmon-in-the-toaster-oven-recipe"
+ },
+ {
+  "seg": 24,
+  "name": "The Best Rolled Sugar Cookies",
+  "file": "segments/24_the-best-rolled-sugar-cookies.txt",
+  "chars": 23432,
+  "url": "https://www.allrecipes.com/recipe/10402/the-best-rolled-sugar-cookies/"
+ },
+ {
+  "seg": 25,
+  "name": "Tender and Easy Buttermilk Waffles",
+  "file": "segments/25_tender-and-easy-buttermilk-waffles.txt",
+  "chars": 12259,
+  "url": "https://www.allrecipes.com/recipe/233920/tender-and-easy-buttermilk-waffles/"
+ },
+ {
+  "seg": 26,
+  "name": "My Thai Chicken Wraps",
+  "file": "segments/26_my-thai-chicken-wraps.txt",
+  "chars": 10698,
+  "url": "https://www.allrecipes.com/recipe/147205/my-thai-chicken-wraps/"
+ },
+ {
+  "seg": 27,
+  "name": "Mango Salsa",
+  "file": "segments/27_mango-salsa.txt",
+  "chars": 12131,
+  "url": "https://www.allrecipes.com/recipe/48032/mango-salsa/"
+ },
+ {
+  "seg": 28,
+  "name": "Easy Coleslaw Dressing",
+  "file": "segments/28_easy-coleslaw-dressing.txt",
+  "chars": 14312,
+  "url": "https://www.allrecipes.com/recipe/240784/easy-coleslaw-dressing/"
+ },
+ {
+  "seg": 29,
+  "name": "Blackberry Sauce",
+  "file": "segments/29_blackberry-sauce.txt",
+  "chars": 9826,
+  "url": "https://www.allrecipes.com/recipe/165418/sweet-blackberry-and-brandy-sauce/"
+ },
+ {
+  "seg": 30,
+  "name": "Chef John's Bacon and Asparagus Dutch Baby",
+  "file": "segments/30_chef-john-s-bacon-and-asparagus-dutch-baby.txt",
+  "chars": 7223,
+  "url": "https://www.allrecipes.com/recipe/254281/chef-johns-bacon-and-asparagus-dutch-baby/"
+ },
+ {
+  "seg": 31,
+  "name": "Baked Ham & Cheese Party Sandwiches",
+  "file": "segments/31_baked-ham-cheese-party-sandwiches.txt",
+  "chars": 14815,
+  "url": "https://www.allrecipes.com/recipe/216756/baked-ham-and-cheese-party-sandwiches/"
+ }
+]

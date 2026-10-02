@@ -1,0 +1,4 @@
+build/
+convert_preview.json
+__pycache__/
+new*.json
